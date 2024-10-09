@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.foto{
+    /* max-height: 400px;
+    width: 100%; */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 0px -290px;
+}
+.foto2{
+    /* max-height: 400px;
+    width: 100%; */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 0px -35px;
+}
+
+.mat{
+    display: flex;
+    justify-content: center;
+}

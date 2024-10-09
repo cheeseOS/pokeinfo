@@ -1,0 +1,15 @@
+{
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "@ionic/angular/common",
+    "@ionic/angular/standalone"
+  ],
+  "cSpell.words": [
+    "Poké",
+    "pokeapi",
+    "Pokeapi",
+    "pokeapicomp",
+    "pokemon",
+    "pokemons",
+    "pokémons"
+  ]
+}

@@ -1,0 +1,50 @@
+<!-- 
+  <ul>
+    <li *ngFor="let pokemon of pokemons">
+      <label>
+        <h2>#{{ pokemon.id }} - {{ pokemon.name}}</h2>
+        <p>HP: {{ pokemon.stats.hp }}</p>
+        <p>Attack: {{ pokemon.stats.attack }}</p>
+        <p>Defense: {{ pokemon.stats.defense }}</p>
+        <p>Special Attack: {{ pokemon.stats.specialAttack }}</p>
+        <p>Special Defense: {{ pokemon.stats.specialDefense }}</p>
+        <p>Speed: {{ pokemon.stats.speed }}</p>
+      </label>
+    </li>
+  </ul> -->
+
+  <!-- <div class="grid-container">
+    <div class="grid-item" *ngFor="let pokemon of pokemons">
+      <div class="pokemon-card" [ngStyle]="{'background-image': 'url(' + pokemon.image + ')'}">
+        <h2>#{{ pokemon.id }} - {{ pokemon.name | uppercase }}</h2>
+        <p *ngFor="let type of pokemon.types">{{ type | uppercase }}</p>
+      </div>
+    </div>
+  </div> -->
+  
+  <ion-content>
+
+<!--     <div class="container">
+      <ion-button routerLink="/tabs/devs" class="btn" fill="clear">Sobre os desenvolvedores.</ion-button>
+      <h2 class="titulo">PokéInfo</h2>
+      <ion-searchbar></ion-searchbar>
+    </div> -->
+
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="chevron-down-circle-outline"
+        pullingText="Recarregar?"
+        refreshingSpinner="circular"
+        refreshingText="Buscando pokémons perdidos..."
+      >
+      </ion-refresher-content>
+    </ion-refresher>
+    <div class="grid-container">
+      <div class="grid-item" *ngFor="let pokemon of pokemons">
+        <div class="pokemon-card" [ngStyle]="{'background-image': 'url(' + pokemon.image + ')'}">
+          <h2>#{{ pokemon.id }} <br> {{ pokemon.name | uppercase }}</h2>
+          <p *ngFor="let type of pokemon.types">{{ type  | uppercase }}</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
