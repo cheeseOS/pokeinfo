@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <div class="logo-container">
+      <img src="assets/pokeball.jpeg" alt="" class="logo">
+    </div>
+    <ion-title class="title">Cadastro</ion-title>
+    <p class="subTitle">Registre-se para criar sua conta</p>
+  </div>
+
+ <form action="">
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input placeholder="Nome" class="input"></ion-input>
+      <ion-icon name="person-outline" color="black"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Email" class="input"></ion-input>
+      <ion-icon name="mail-outline" color="black"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Senha" class="input"></ion-input>
+      <ion-icon name="lock-closed-outline" color="black"></ion-icon>
+    </ion-item> 
+
+    <div class="cadastroLink">
+      <p>Já possui uma conta? <a style="color: #FFC33F" [routerLink]="['/login']">Entrar</a></p>
+    </div>
+  </div>
+  <ion-button class="login-button" [routerLink]="['/login']">
+    Criar
+  </ion-button>
+ </form>
+ 
+</ion-content>

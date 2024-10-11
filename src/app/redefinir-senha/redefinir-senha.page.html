@@ -1,0 +1,20 @@
+<ion-content [fullscreen]="true">
+  <div class="header">
+    <div class="logo-container">
+      <img src="assets/pokeball.jpeg" alt="" class="logo">
+    </div>
+    <ion-title class="title">
+      Digite seu email
+      <p class="subTitle"> Para redefinir a sua senha </p>
+    </ion-title>
+  </div>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-input placeholder="Email" class="input"></ion-input>
+      <ion-icon name="mail-outline" color="black"></ion-icon>
+    </ion-item>
+    <ion-button class="login-button" [routerLink]="['/login']">
+      botão?
+    </ion-button>
+  </div>
+</ion-content>

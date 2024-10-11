@@ -1,0 +1,84 @@
+.input  {
+    font-size: 300;
+
+}
+
+ion-item {
+    --background: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    color:black;
+}
+
+.header {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+    .subTitle {
+        color: gray;
+        font-size: 17px;
+    }
+    .title {
+        font-size: 27px;
+
+    }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 40px;
+  }
+  
+.logo {
+    width: 130px; 
+    height: auto; 
+  }
+  
+
+.login-button {
+    margin-top: 20px;
+    border-radius: 16px; 
+    width: 70%; 
+    max-width: 300px; 
+    height: 50px; 
+    background-color: #f00; 
+    color: #fff; 
+    font-size: 18px; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center; 
+  }
+  
+  
+
+.cadastroLink {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    right: 0;
+
+    p {
+        font-size: 17px;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+.esqueceuSenha {
+    display: flex;
+    justify-content: flex-end;
+    a{
+        font-weight: 400;
+        font-size: 17px;
+        text-decoration: none ;
+    }
+}

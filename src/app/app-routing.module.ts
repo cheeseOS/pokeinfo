@@ -9,7 +9,19 @@ const routes: Routes = [
   {
     path: 'devs',
     loadChildren: () => import('./devs/devs.module').then( m => m.DevsPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  {
+    path: 'redefinir-senha',
+    loadChildren: () => import('./redefinir-senha/redefinir-senha.module').then( m => m.RedefinirSenhaPageModule)
   }
+
 ];
 @NgModule({
   imports: [
