@@ -2,6 +2,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { CommonModule, NgFor, NgStyle } from '@angular/common';
 import { IonToolbar, IonHeader, IonTitle, IonContent, IonSearchbar, IonButton, IonRefresher, IonRefresherContent } from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
 
 
 
@@ -31,12 +32,16 @@ export class PokeapicompComponent  implements OnInit {
   }
   pokemons: any[] = [];
 
-  constructor(private pokeapiService: PokeapiService) { }
+  constructor(private pokeapiService: PokeapiService, private router:Router) { }
 
   ngOnInit() {
     this.pokeapiService.getPokemons().subscribe(data => {
       this.pokemons = data;
-    })
+    });
+  }
+
+  openPokemon(id:number){
+    this.router.navigate(['/pokemon', id]);
   }
 
 }

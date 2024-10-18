@@ -40,4 +40,32 @@ export class PokeapiService {
       })
     );
   }
+
+  getPokemon(id:number):Observable<any>{
+    return this.http.get(`${this.apiUrl}${id}`).pipe(
+      map((pokemon: any)=> ({
+        id: pokemon.id,
+        name: pokemon.name,
+        types:
+        pokemon.types.map((typeInfo: any) => typeInfo.type.name),
+        image:
+        pokemon.sprites.other['official-artwork'].front_default,
+        stats: {
+          hp:
+          pokemon.stats[0].base_stat,
+          attack:
+          pokemon.stats[1].base_stat,
+          defense:
+          pokemon.stats[2].base_stat,
+          specialAttack:
+          pokemon.stats[3].base_stat,
+          specialDefense:
+          pokemon.stats[4].base_stat,
+          speed:
+          pokemon.stats[5].base_stat
+        }
+      }))
+    );
+  }
+
 }

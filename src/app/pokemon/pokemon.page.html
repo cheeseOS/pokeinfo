@@ -1,0 +1,36 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">pokemon</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+ -->
+
+ <ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title *ngIf="pokemon">{{pokemon.name}}</ion-title>
+  </ion-toolbar>
+ </ion-header>
+
+ <ion-content>
+  <div class="pokemon-detail" *ngIf="pokemon">
+    <img [src]="pokemon.image">
+    <h1>#{{ pokemon.id }} - {{pokemon.name | uppercase}} </h1>
+    <p *ngFor="let type of pokemon.types"> {{ type | uppercase }}</p>
+    <h3>status:</h3>
+    <p>hp: {{pokemon.stats.hp}}</p>
+    <p>attack: {{pokemon.stats.attack}}</p>
+    <p>defense: {{pokemon.stats.defense}}</p>
+    <p>specialAttack: {{pokemon.stats.specialAttack}}</p>
+    <p>specialDefense: {{pokemon.stats.specialDefense}}</p>
+    <p>speed: {{pokemon.stats.speed}}</p>
+  </div>
+ </ion-content>

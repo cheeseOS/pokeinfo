@@ -40,7 +40,7 @@
       </ion-refresher-content>
     </ion-refresher>
     <div class="grid-container">
-      <div class="grid-item" *ngFor="let pokemon of pokemons">
+      <div class="grid-item" *ngFor="let pokemon of pokemons" (click)="openPokemon(pokemon.id)">
         <div class="pokemon-card" [ngStyle]="{'background-image': 'url(' + pokemon.image + ')'}">
           <h2>#{{ pokemon.id }} <br> {{ pokemon.name | uppercase }}</h2>
           <p *ngFor="let type of pokemon.types">{{ type  | uppercase }}</p>
