@@ -29,9 +29,27 @@
       <h2 class="titulo">PokéInfo</h2>
       <ion-searchbar 
       [(ngModel)]="pesca"
-      (ionInput)="filtrar($event)"
+      (ionInput)="filtrar()"
       placeholder="Qual pokémon você está procurando?"
       ></ion-searchbar>
+
+      <div class="toggle-button">
+        <ion-text (click)="toggleFiltros()">
+          Deseja filtrar por tipo?
+        </ion-text>
+      </div>
+
+      <div class="filter-container" *ngIf="mostrarFiltros">
+        <!-- <ion-label>Filtrar por tipo:</ion-label> -->
+        <div *ngFor="let type of tipos" class="checkbox-container">
+          <ion-checkbox
+            (ionChange)="updateTiposSelecionados(type)"
+            [checked]="tiposSelecionados.includes(type)"
+            [disabled]="!tiposSelecionados.includes(type) && tiposSelecionados.length >= 2">
+          </ion-checkbox>
+          <ion-label>{{ type | uppercase }}</ion-label>
+        </div>
+      </div>
     </div>
     
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">

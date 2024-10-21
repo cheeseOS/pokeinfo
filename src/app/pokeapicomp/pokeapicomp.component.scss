@@ -75,3 +75,30 @@
   font-size: 18px;
 }
 
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px;
+  justify-content: center;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+ion-checkbox {
+  --background: #ddd;
+  --border-radius: 50%;
+  --size: 24px;
+}
+
+ion-label {
+  font-size: 14px;
+}
+
+.toggle-button{
+  margin: 10px 0;
+}
