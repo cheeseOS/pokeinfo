@@ -23,13 +23,17 @@
   </div> -->
   
   <ion-content>
-
-<!--     <div class="container">
-      <ion-button routerLink="/tabs/devs" class="btn" fill="clear">Sobre os desenvolvedores.</ion-button>
+    
+    <div class="container">
+      <ion-button id="opendev" class="btn" fill="clear">Sobre os desenvolvedores.</ion-button>
       <h2 class="titulo">PokéInfo</h2>
-      <ion-searchbar></ion-searchbar>
-    </div> -->
-
+      <ion-searchbar 
+      [(ngModel)]="pesca"
+      (ionInput)="filtrar($event)"
+      placeholder="Qual pokémon você está procurando?"
+      ></ion-searchbar>
+    </div>
+    
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
       <ion-refresher-content
         pullingIcon="chevron-down-circle-outline"
@@ -39,12 +43,44 @@
       >
       </ion-refresher-content>
     </ion-refresher>
+
     <div class="grid-container">
-      <div class="grid-item" *ngFor="let pokemon of pokemons" (click)="openPokemon(pokemon.id)">
+      <div class="grid-item" *ngFor="let pokemon of filtroPokemons" (click)="openPokemon(pokemon.id)">
         <div class="pokemon-card" [ngStyle]="{'background-image': 'url(' + pokemon.image + ')'}">
           <h2>#{{ pokemon.id }} <br> {{ pokemon.name | uppercase }}</h2>
           <p *ngFor="let type of pokemon.types">{{ type  | uppercase }}</p>
         </div>
       </div>
     </div>
-  </ion-content>
+    <ion-modal
+    #modal
+    trigger="opendev"
+    [initialBreakpoint]="0.25"
+    [breakpoints]="[0.25, 0.5, 0.75]"
+    handleBehavior="cycle"
+    >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <h3 class="modal-title">Essa é a dupla responsável pelo PokéInfo! </h3>
+        <ion-list class="modal-lista" lines="none">
+          <ion-item class="modal-item">
+            <ion-avatar slot="start">
+              <ion-img class="foto" src="assets/kaua.png"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>Kauã Pereira</h2>
+            </ion-label>
+          </ion-item>
+          <ion-item class="modal-item">
+            <ion-avatar slot="start">
+              <ion-img class="foto2" src="assets/julia.png"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>Julia Rodrigues</h2>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

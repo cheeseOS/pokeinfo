@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../devs/devs.module').then(m => m.DevsPageModule)
       },
       {
+        path: 'pokemon/:id',
+        loadChildren: () => import('../pokemon/pokemon.module').then(m => m.PokemonPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
