@@ -102,3 +102,12 @@ ion-label {
 .toggle-button{
   margin: 10px 0;
 }
+
+ion-fab-button {
+  --background: #3880ff;  // Cor do fundo do botão
+  --color: #ffffff;       // Cor do ícone (seta para cima)
+}
+
+ion-fab {
+  z-index: 1000;  // Mantém o botão no topo de outros elementos
+}

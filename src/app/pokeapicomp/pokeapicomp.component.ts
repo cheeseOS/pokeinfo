@@ -1,7 +1,7 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, HostListener } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { CommonModule, NgFor, NgStyle } from '@angular/common';
-import { IonToolbar, IonItem, IonImg, IonCheckbox, IonLabel, IonAvatar, IonModal, IonList, IonHeader, IonTitle, IonContent, IonSearchbar, IonButton, IonRefresher, IonRefresherContent, IonIcon, IonText } from '@ionic/angular/standalone';
+import { IonToolbar, IonItem, IonFab, IonImg, IonCheckbox, IonLabel, IonAvatar, IonModal, IonList, IonHeader, IonTitle, IonContent, IonSearchbar, IonButton, IonRefresher, IonRefresherContent, IonIcon, IonText, IonFabButton } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -10,13 +10,14 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-pokeapicomp',
   standalone: true,
-  imports: [IonText, IonIcon, 
+  imports: [IonFabButton, IonText, IonIcon, 
     FormsModule,
     IonTitle, 
     IonHeader, 
     IonModal,
     IonList,
     IonItem,
+    IonFab,
     IonImg,
     IonLabel,
     IonAvatar,
@@ -34,7 +35,11 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./pokeapicomp.component.scss'],
 })
 export class PokeapicompComponent  implements OnInit {
+
+  showBackToTop: boolean = false;
   mostrarFiltros: boolean = false;
+
+
   pokemons: any[] = [];
   filtroPokemons: any[] = [];
   pesca: string = '';
@@ -43,6 +48,7 @@ export class PokeapicompComponent  implements OnInit {
   tipos = ['normal', 'fire', 'water', 'grass', 'electric', 'ice', 'fighting', 'poison', 'ground', 'flying', 'psychic', 'bug', 'rock', 'ghost', 'dark', 'dragon', 'steel', 'fairy']
 
   handleRefresh(event: any) {
+    this.loadPokemons();
     setTimeout(() => {
       event.target.complete();
     }, 2000);
@@ -56,13 +62,21 @@ export class PokeapicompComponent  implements OnInit {
       this.pokemons = data;
     }); */
 
-    this.pokeapiService.getPokemons().subscribe(data => {
+    /*     this.pokeapiService.getPokemons().subscribe(data => {
       this.pokemons = data;
       this.filtroPokemons = data;
-    })
+      }) */
+
+      this.loadPokemons();
+    }
+    
+    loadPokemons(){
+      this.pokeapiService.getPokemons().subscribe(data => {
+      this.pokemons = data;
+      this.filtroPokemons = data;
+    });
   }
-
-
+    
   toggleFiltros(){
     this.mostrarFiltros = !this.mostrarFiltros;
   }
@@ -97,5 +111,17 @@ export class PokeapicompComponent  implements OnInit {
   openPokemon(id:number){
     this.router.navigate(['/tabs/pokemon', id]);
   }
+
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const yOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    this.showBackToTop = yOffset > 300;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
 
 }
